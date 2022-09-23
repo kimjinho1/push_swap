@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 08:39:01 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/23 20:20:42 by jinhokim         ###   ########.fr       */
+/*   Created: 2022/09/22 20:24:45 by jinhokim          #+#    #+#             */
+/*   Updated: 2022/09/23 20:20:57 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
-void	a(void)
+void	error_exit(void)
 {
-	system("leaks push_swap");
+	write(2, "Error\n", 6);
+	exit(EXIT_FAILURE);
 }
-*/
 
-int	main(int ac, char **av)
+int	check_num_arr(t_info *info, long long ln)
 {
-	//atexit(a);
-	t_info		info;
-	int			i;
+	int	i;
 
-	init_info(&info, ac, av);
 	i = -1;
-	while (++i < info.str_cnt)
-		ft_printf("%lld\n", info.num_arr[i]);
-	return (0);
+	while (++i < info->parse_cnt)
+	{
+		if (info->num_arr[i] == ln)
+			return (0);
+	}
+	return (1);
 }

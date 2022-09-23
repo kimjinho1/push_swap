@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 18:25:55 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/06 17:52:33 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/09/22 23:36:52 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char		*ft_strnstr(const char *big, const char *little, size_t n);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 
 int			ft_atoi(const char *nptr);
+long long	ft_long_atoi(const char *nptr, int *check);
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
 int			ft_isalnum(int c);
