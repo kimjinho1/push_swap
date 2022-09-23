@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 08:41:23 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/23 21:45:16 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/09/23 21:58:35 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_info
 
 void		error_exit(void);
 void		free_info(t_info *info);
+void		free_stack(t_node *head);
 
 int			get_num_count(int ac, char **av);
 void		make_num_arr(t_info *info, int ac, char **av);
