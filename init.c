@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:45:35 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/26 18:36:09 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/09/26 21:28:17 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	init_arr(t_info *info, int ac, char **av)
 {
+	if (ac < 2)
+		exit(EXIT_FAILURE);
 	info->str_cnt = get_num_count(ac, av);
 	info->parse_cnt = 0;
 	make_num_arr(info, ac, av);
@@ -42,6 +44,5 @@ static t_node	*fill_a(t_info *info)
 void	init_stack(t_info *info, t_stack *s)
 {
 	s->a = fill_a(info);
-	s->b = (t_node *)malloc(sizeof(t_node));
 	s->b = NULL;
 }

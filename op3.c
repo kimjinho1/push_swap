@@ -1,37 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   op3.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 08:39:01 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/26 21:59:12 by jinhokim         ###   ########.fr       */
+/*   Created: 2022/09/26 21:52:38 by jinhokim          #+#    #+#             */
+/*   Updated: 2022/09/26 21:53:31 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	a(void)
+void	rrr(t_stack *s)
 {
-	system("leaks push_swap");
-}
-
-int	main(int ac, char **av)
-{
-	//atexit(a);
-	t_info	info;
-	t_stack	s;
-
-	init_arr(&info, ac, av);
-	init_stack(&info, &s);
-	print_stack(&s);
-	if (check_sorted(&s))
-		free_exit(&info);
-	pb(&s);
-	pb(&s);
-	print_stack(&s);
-	free(info.num_arr);
-	free_stack(&s);
-	return (0);
+	rra(s);
+	rrb(s);
 }

@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 08:41:23 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/26 18:51:21 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/09/26 21:59:35 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,10 @@ typedef struct s_stack
 }				t_stack;
 
 void			error_exit(void);
+void			free_exit(t_info *info);
 void			free_stack(t_stack *s);
 void			print_stack(t_stack *s);
+int				check_sorted(t_stack *s);
 
 int				get_num_count(int ac, char **av);
 void			make_num_arr(t_info *info, int ac, char **av);
@@ -53,5 +55,10 @@ void			pb(t_stack *s);
 
 void			ra(t_stack *s);
 void			rb(t_stack *s);
+void			rr(t_stack *s);
+void			rra(t_stack *s);
+void			rrb(t_stack *s);
+
+void			rrr(t_stack *s);
 
 #endif

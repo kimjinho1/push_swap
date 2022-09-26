@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:32:05 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/26 18:51:15 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/09/26 21:45:06 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,70 @@
 
 void	ra(t_stack *s)
 {
-	int		n;
 	t_node	*tmp;
+	t_node	*tail;
 
 	if (!s->a || !s->a->next)
 		return ;
-	n = s->a->num;
 	tmp = s->a;
-	while (tmp->next)
-		tmp = tmp->next;
-	s->a->num = tmp->num;
-	tmp->num = n;
+	tail = s->a;
+	s->a = s->a->next;
+	while (tail->next)
+		tail = tail->next;
+	tmp->next = NULL;
+	tail->next = tmp;
 }
 
 void	rb(t_stack *s)
 {
-	int		n;
 	t_node	*tmp;
+	t_node	*tail;
 
 	if (!s->b || !s->b->next)
 		return ;
-	n = s->b->num;
 	tmp = s->b;
-	while (tmp->next)
-		tmp = tmp->next;
-	s->b->num = tmp->num;
-	tmp->num = n;
+	tail = s->b;
+	s->b = s->b->next;
+	while (tail->next)
+		tail = tail->next;
+	tmp->next = NULL;
+	tail->next = tmp;
+}
+
+void	rr(t_stack *s)
+{
+	ra(s);
+	rb(s);
+}
+
+void	rra(t_stack *s)
+{
+	t_node	*tmp;
+	t_node	*node;
+
+	if (!s->a || !s->a->next)
+		return ;
+	node = s->a;
+	while (node->next->next)
+		node = node->next;
+	tmp = node->next;
+	node->next = NULL;
+	tmp->next = s->a;
+	s->a = tmp;
+}
+
+void	rrb(t_stack *s)
+{
+	t_node	*tmp;
+	t_node	*node;
+
+	if (!s->b || !s->b->next)
+		return ;
+	node = s->b;
+	while (node->next->next)
+		node = node->next;
+	tmp = node->next;
+	node->next = NULL;
+	tmp->next = s->b;
+	s->b = tmp;
 }
