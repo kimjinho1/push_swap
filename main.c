@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 08:39:01 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/26 21:59:12 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/09/26 22:40:02 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	main(int ac, char **av)
 
 	init_arr(&info, ac, av);
 	init_stack(&info, &s);
-	print_stack(&s);
 	if (check_sorted(&s))
 		free_exit(&info);
+	print_stack(&s);
 	pb(&s);
 	pb(&s);
 	print_stack(&s);
