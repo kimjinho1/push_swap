@@ -1,40 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   op2.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 08:39:01 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/26 18:53:15 by jinhokim         ###   ########.fr       */
+/*   Created: 2022/09/26 18:32:05 by jinhokim          #+#    #+#             */
+/*   Updated: 2022/09/26 18:51:15 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	a(void)
+void	ra(t_stack *s)
 {
-	system("leaks push_swap");
+	int		n;
+	t_node	*tmp;
+
+	if (!s->a || !s->a->next)
+		return ;
+	n = s->a->num;
+	tmp = s->a;
+	while (tmp->next)
+		tmp = tmp->next;
+	s->a->num = tmp->num;
+	tmp->num = n;
 }
 
-int	main(int ac, char **av)
+void	rb(t_stack *s)
 {
-	//atexit(a);
-	t_info	info;
-	t_stack	s;
+	int		n;
+	t_node	*tmp;
 
-	init_arr(&info, ac, av);
-	init_stack(&info, &s);
-	print_stack(&s);
-	pb(&s);
-	pb(&s);
-	pb(&s);
-	pb(&s);
-	print_stack(&s);
-	ra(&s);
-	rb(&s);
-	print_stack(&s);
-	free(info.num_arr);
-	//free_stack(s);
-	return (0);
+	if (!s->b || !s->b->next)
+		return ;
+	n = s->b->num;
+	tmp = s->b;
+	while (tmp->next)
+		tmp = tmp->next;
+	s->b->num = tmp->num;
+	tmp->num = n;
 }

@@ -6,7 +6,7 @@
 #    By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 08:48:05 by jinhokim          #+#    #+#              #
-#    Updated: 2022/09/23 20:48:52 by jinhokim         ###   ########.fr        #
+#    Updated: 2022/09/26 18:49:38 by jinhokim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ SRCS			= main.c \
 					utils.c \
 					parsing.c \
 					init.c \
+					op1.c \
+					op2.c \
 
 HEADER			= push_swap.h
 
