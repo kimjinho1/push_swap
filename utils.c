@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 20:24:45 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/26 21:57:21 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/09/27 11:25:31 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	free_exit(t_info *info)
 	exit(EXIT_FAILURE);
 }
 
+/*
 void	print_stack(t_stack *s)
 {
 	t_node	*t1;
@@ -50,6 +51,29 @@ void	print_stack(t_stack *s)
 	ft_printf("-         -\n");
 	ft_printf("a         b\n");
 	ft_printf("---------------------------\n");
+}
+*/
+
+void	print_stack(t_stack *s)
+{
+	t_node	*t;
+
+	t = s->a;
+	ft_printf("a:");
+	while (t)
+	{
+		ft_printf(" %d", t->num);
+		t = t->next;
+	}
+	ft_printf("\n");
+	t = s->b;
+	ft_printf("b:");
+	while (t)
+	{
+		ft_printf(" %d", t->num);
+		t = t->next;
+	}
+	ft_printf("\n\n");
 }
 
 void	free_stack(t_stack *s)
@@ -79,7 +103,7 @@ int	check_sorted(t_stack *s)
 	int		n;
 
 	if (!s->a || !s->a->next)
-		return (0);
+		return (1);
 	tmp = s->a;
 	n = s->a->num;
 	while (tmp->next)

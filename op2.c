@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 18:32:05 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/26 21:45:06 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/09/27 13:08:52 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,27 @@
 void	ra(t_stack *s)
 {
 	t_node	*tmp;
-	t_node	*tail;
 
 	if (!s->a || !s->a->next)
 		return ;
 	tmp = s->a;
-	tail = s->a;
 	s->a = s->a->next;
-	while (tail->next)
-		tail = tail->next;
-	tmp->next = NULL;
-	tail->next = tmp;
+	s->a_tail->next = tmp;
+	s->a_tail = tmp;
+	s->a_tail->next = NULL;
 }
 
 void	rb(t_stack *s)
 {
 	t_node	*tmp;
-	t_node	*tail;
 
 	if (!s->b || !s->b->next)
 		return ;
 	tmp = s->b;
-	tail = s->b;
 	s->b = s->b->next;
-	while (tail->next)
-		tail = tail->next;
-	tmp->next = NULL;
-	tail->next = tmp;
+	s->b_tail->next = tmp;
+	s->b_tail = tmp;
+	s->b_tail->next = NULL;
 }
 
 void	rr(t_stack *s)
@@ -53,31 +47,33 @@ void	rr(t_stack *s)
 void	rra(t_stack *s)
 {
 	t_node	*tmp;
-	t_node	*node;
+	t_node	*tmp2;
 
 	if (!s->a || !s->a->next)
 		return ;
-	node = s->a;
-	while (node->next->next)
-		node = node->next;
-	tmp = node->next;
-	node->next = NULL;
-	tmp->next = s->a;
-	s->a = tmp;
+	tmp = s->a;
+	while (tmp->next && tmp->next->next)
+		tmp = tmp->next;
+	tmp->next = NULL;
+	tmp2 = s->a_tail;
+	s->a_tail->next = s->a;
+	s->a = s->a_tail;
+	s->a_tail = tmp;
 }
 
 void	rrb(t_stack *s)
 {
 	t_node	*tmp;
-	t_node	*node;
+	t_node	*tmp2;
 
 	if (!s->b || !s->b->next)
 		return ;
-	node = s->b;
-	while (node->next->next)
-		node = node->next;
-	tmp = node->next;
-	node->next = NULL;
-	tmp->next = s->b;
-	s->b = tmp;
+	tmp = s->b;
+	while (tmp->next && tmp->next->next)
+		tmp = tmp->next;
+	tmp->next = NULL;
+	tmp2 = s->b_tail;
+	s->b_tail->next = s->b;
+	s->b = s->b_tail;
+	s->b_tail = tmp;
 }

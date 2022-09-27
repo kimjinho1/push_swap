@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:45:35 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/26 21:28:17 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/09/27 11:34:09 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,28 +21,34 @@ void	init_arr(t_info *info, int ac, char **av)
 	make_num_arr(info, ac, av);
 }
 
-static t_node	*fill_a(t_info *info)
+static void	*fill_a(t_info *info, t_stack *s)
 {
 	int		i;
 	t_node	*head;
+	t_node	*tmp;
 	t_node	*node;
 
 	i = 0;
 	head = (t_node *)malloc(sizeof(t_node));
 	head->num = info->num_arr[i];
 	head->next = NULL;
+	tmp = head;
 	while (++i < info->str_cnt)
 	{
 		node = (t_node *)malloc(sizeof(t_node));
 		node->num = info->num_arr[i];
-		node->next = head;
-		head = node;
+		tmp->next = node;
+		tmp = node;
 	}
-	return (head);
+	tmp->next = NULL;
+	s->a = head;
+	s->a_tail = tmp;
+	return (0);
 }
 
 void	init_stack(t_info *info, t_stack *s)
 {
-	s->a = fill_a(info);
+	fill_a(info, s);
 	s->b = NULL;
+	s->b_tail = s->b;
 }

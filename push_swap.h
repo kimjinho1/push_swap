@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 08:41:23 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/26 21:59:35 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/09/27 10:06:01 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ typedef struct s_node
 typedef struct s_stack
 {
 	t_node	*a;
+	t_node	*a_tail;
 	t_node	*b;
+	t_node	*b_tail;
 }				t_stack;
 
 void			error_exit(void);
