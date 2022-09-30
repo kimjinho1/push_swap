@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 20:24:45 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/27 11:25:31 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/09/30 21:55:18 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,59 +24,42 @@ void	free_exit(t_info *info)
 	exit(EXIT_FAILURE);
 }
 
-/*
-void	print_stack(t_stack *s)
+void	print_ps(t_ps *ps)
 {
 	t_node	*t1;
 	t_node	*t2;
 
-	t1 = s->a;
-	t2 = s->b;
+	t1 = ps->a.tail;
+	t2 = ps->b.tail;
 	while (t1 || t2)
 	{
 		if (t1)
 		{
 			ft_printf("%-10d", t1->num);
-			t1 = t1->next;
+			t1 = t1->prev;
 		}
 		else
 			ft_printf("          ");
 		if (t2)
 		{
 			ft_printf("%d", t2->num);
-			t2 = t2->next;
+			t2 = t2->prev;
 		}
 		ft_printf("\n");
 	}
 	ft_printf("-         -\n");
 	ft_printf("a         b\n");
-	ft_printf("---------------------------\n");
+	ft_printf("---------------------------\n\n");
 }
-*/
 
-void	print_stack(t_stack *s)
+void	free_ps(t_ps *ps)
 {
-	t_node	*t;
-
-	t = s->a;
-	ft_printf("a:");
-	while (t)
-	{
-		ft_printf(" %d", t->num);
-		t = t->next;
-	}
-	ft_printf("\n");
-	t = s->b;
-	ft_printf("b:");
-	while (t)
-	{
-		ft_printf(" %d", t->num);
-		t = t->next;
-	}
-	ft_printf("\n\n");
+	free_stack(&ps->a);
+	free_stack(&ps->b);
 }
 
-void	free_stack(t_stack *s)
+/*
+void	free_ps(t_stack *s)
 {
 	t_node	*tmp;
 	t_node	*node;
@@ -95,23 +78,12 @@ void	free_stack(t_stack *s)
 		tmp = tmp->next;
 		free(node);
 	}
-}
-
-int	check_sorted(t_stack *s)
-{
-	t_node	*tmp;
-	int		n;
-
-	if (!s->a || !s->a->next)
-		return (1);
-	tmp = s->a;
-	n = s->a->num;
-	while (tmp->next)
+	tmp = s->cmd_li;
+	while (tmp)
 	{
+		node = tmp;
 		tmp = tmp->next;
-		if (n > tmp->num)
-			return (0);
-		n = tmp->num;
+		free(node);
 	}
-	return (1);
 }
+*/

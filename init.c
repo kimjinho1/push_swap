@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:45:35 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/27 11:34:09 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/09/30 21:58:01 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,34 +21,34 @@ void	init_arr(t_info *info, int ac, char **av)
 	make_num_arr(info, ac, av);
 }
 
-static void	*fill_a(t_info *info, t_stack *s)
+void	init_ps(t_info *info, t_ps *ps)
 {
 	int		i;
-	t_node	*head;
-	t_node	*tmp;
-	t_node	*node;
 
-	i = 0;
-	head = (t_node *)malloc(sizeof(t_node));
-	head->num = info->num_arr[i];
-	head->next = NULL;
-	tmp = head;
+	init_stack(&ps->a);
+	init_stack(&ps->b);
+	i = -1;
 	while (++i < info->str_cnt)
-	{
-		node = (t_node *)malloc(sizeof(t_node));
-		node->num = info->num_arr[i];
-		tmp->next = node;
-		tmp = node;
-	}
-	tmp->next = NULL;
-	s->a = head;
-	s->a_tail = tmp;
-	return (0);
+		push(&ps->a, info->num_arr[i]);
+	ps->cmd_cnt = 0;
+	ps->cmd_li = NULL;
 }
 
-void	init_stack(t_info *info, t_stack *s)
+int	check_sorted(t_stack *stack)
 {
-	fill_a(info, s);
-	s->b = NULL;
-	s->b_tail = s->b;
+	t_node	*tmp;
+	int		n;
+
+	if (stack->len < 2)
+		return (1);
+	tmp = stack->head;
+	n = tmp->num;
+	while (tmp->next)
+	{
+		tmp = tmp->next;
+		if (n > tmp->num)
+			return (0);
+		n = tmp->num;
+	}
+	return (1);
 }

@@ -6,19 +6,18 @@
 #    By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 08:48:05 by jinhokim          #+#    #+#              #
-#    Updated: 2022/09/26 21:53:13 by jinhokim         ###   ########.fr        #
+#    Updated: 2022/09/30 20:37:23 by jinhokim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= push_swap
 
 SRCS			= main.c \
+				  	stack.c \
+					stack_utils.c \
 					utils.c \
 					parsing.c \
 					init.c \
-					op1.c \
-					op2.c \
-					op3.c \
 
 HEADER			= push_swap.h
 
