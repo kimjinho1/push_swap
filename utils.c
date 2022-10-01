@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 20:24:45 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/30 21:55:18 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/01 21:09:00 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,21 @@ void	print_ps(t_ps *ps)
 	t_node	*t1;
 	t_node	*t2;
 
-	t1 = ps->a.tail;
-	t2 = ps->b.tail;
+	t1 = ps->a->head;
+	t2 = ps->b->head;
 	while (t1 || t2)
 	{
 		if (t1)
 		{
 			ft_printf("%-10d", t1->num);
-			t1 = t1->prev;
+			t1 = t1->next;
 		}
 		else
 			ft_printf("          ");
 		if (t2)
 		{
 			ft_printf("%d", t2->num);
-			t2 = t2->prev;
+			t2 = t2->next;
 		}
 		ft_printf("\n");
 	}
@@ -52,38 +52,37 @@ void	print_ps(t_ps *ps)
 	ft_printf("---------------------------\n\n");
 }
 
-void	free_ps(t_ps *ps)
+static void	swap(int *n1, int *n2)
 {
-	free_stack(&ps->a);
-	free_stack(&ps->b);
+	int	t;
+
+	t = *n1;
+	*n1 = *n2;
+	*n2 = t;
 }
 
-/*
-void	free_ps(t_stack *s)
+void	quick_sort(int *arr, int start, int end)
 {
-	t_node	*tmp;
-	t_node	*node;
+	int	pivot;
+	int	i;
+	int	j;
 
-	tmp = s->a;
-	while (tmp)
+	if (start >= end)
+		return ;
+	pivot = start;
+	i = pivot + 1;
+	j = end;
+	while (i <= j)
 	{
-		node = tmp;
-		tmp = tmp->next;
-		free(node);
+		while (i <= end && arr[i] <= arr[pivot])
+			i++;
+		while (j > start && arr[j] >= arr[pivot])
+			j--;
+		if (i > j)
+			swap(&arr[j], &arr[pivot]);
+		else
+			swap(&arr[i], &arr[j]);
 	}
-	tmp = s->b;
-	while (tmp)
-	{
-		node = tmp;
-		tmp = tmp->next;
-		free(node);
-	}
-	tmp = s->cmd_li;
-	while (tmp)
-	{
-		node = tmp;
-		tmp = tmp->next;
-		free(node);
-	}
+	quick_sort(arr, start, j - 1);
+	quick_sort(arr, j + 1, end);
 }
-*/

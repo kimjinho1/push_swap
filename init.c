@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:45:35 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/30 21:58:01 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/01 20:23:28 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,25 @@ void	init_ps(t_info *info, t_ps *ps)
 {
 	int		i;
 
-	init_stack(&ps->a);
-	init_stack(&ps->b);
+	ps->a = (t_stack *)malloc(sizeof(t_stack));
+	ps->b = (t_stack *)malloc(sizeof(t_stack));
+	init_stack(ps->a);
+	init_stack(ps->b);
 	i = -1;
 	while (++i < info->str_cnt)
-		push(&ps->a, info->num_arr[i]);
+		push(ps->a, info->num_arr[i]);
 	ps->cmd_cnt = 0;
 	ps->cmd_li = NULL;
 }
 
-int	check_sorted(t_stack *stack)
+int	check_sorted(t_ps *ps)
 {
 	t_node	*tmp;
 	int		n;
 
-	if (stack->len < 2)
+	if (ps->a->len < 2)
 		return (1);
-	tmp = stack->head;
+	tmp = ps->a->head;
 	n = tmp->num;
 	while (tmp->next)
 	{
@@ -51,4 +53,10 @@ int	check_sorted(t_stack *stack)
 		n = tmp->num;
 	}
 	return (1);
+}
+
+void	free_ps(t_ps *ps)
+{
+	free_stack(ps->a);
+	free_stack(ps->b);
 }
