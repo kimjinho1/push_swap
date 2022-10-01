@@ -6,11 +6,37 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 21:44:59 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/01 22:12:00 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/01 22:36:32 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	quick_sort(int *arr, int start, int end)
+{
+	int	pivot;
+	int	i;
+	int	j;
+
+	if (start >= end)
+		return ;
+	pivot = start;
+	i = pivot + 1;
+	j = end;
+	while (i <= j)
+	{
+		while (i <= end && arr[i] <= arr[pivot])
+			i++;
+		while (j > start && arr[j] >= arr[pivot])
+			j--;
+		if (i > j)
+			swap(&arr[j], &arr[pivot]);
+		else
+			swap(&arr[i], &arr[j]);
+	}
+	quick_sort(arr, start, j - 1);
+	quick_sort(arr, j + 1, end);
+}
 
 void	sort2(t_ps *ps)
 {
