@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 08:41:23 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/01 22:23:01 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/01 22:44:28 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,9 @@ void			print_arr(int *arr, t_stack *stack);
 //utils
 void			error_exit(void);
 void			free_exit(t_info *info);
+void			error_free_exit(t_info *info);
 void			print_ps(t_ps *ps);
-void			quick_sort(int *arr, int start, int end);
+void			swap(int *n1, int *n2);
 
 //parsing
 int				get_num_count(int ac, char **av);
@@ -98,6 +99,7 @@ void			rrb(t_ps *ps);
 void			rrr(t_ps *ps);
 
 //sort_under_5
+void			quick_sort(int *arr, int start, int end);
 int				get_median(t_stack *stack);
 int				get_min(t_stack *stack);
 void			sort2(t_ps *ps);

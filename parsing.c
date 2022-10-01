@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 00:14:57 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/09/27 11:29:46 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/01 23:09:07 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	get_num_count(int ac, char **av)
 {
 	int		i;
 	int		cnt;
+	size_t	t;
 	char	**nums_str;
 
 	i = 0;
@@ -51,6 +52,9 @@ int	get_num_count(int ac, char **av)
 		error_exit();
 	while (++i < ac)
 	{
+		t = ft_strlen(av[i]);
+		if (t == 1 && av[i][0] == ' ')
+			error_exit();
 		nums_str = ft_split(av[i], ' ');
 		cnt += str_num_count(nums_str);
 	}
@@ -82,10 +86,13 @@ static void	fill_num_arr(t_info *info, char **nums_str)
 	while (nums_str[++i])
 	{
 		ln = ft_long_atoi(nums_str[i], &check);
-		if (check == 1)
-			error_exit();
-		if (!check_num_arr(info, ln))
-			error_exit();
+		if (check == 1 || !check_num_arr(info, ln))
+		{
+			while (nums_str[i])
+				free(nums_str[i++]);
+			free(nums_str);
+			error_free_exit(info);
+		}
 		info->num_arr[info->parse_cnt] = (int)ln;
 		info->parse_cnt++;
 		free(nums_str[i]);
@@ -95,8 +102,8 @@ static void	fill_num_arr(t_info *info, char **nums_str)
 
 void	make_num_arr(t_info *info, int ac, char **av)
 {
-	int			i;
-	char		**nums_str;
+	int		i;
+	char	**nums_str;
 
 	i = 0;
 	info->num_arr = (int *)malloc(sizeof(int) * info->str_cnt);
