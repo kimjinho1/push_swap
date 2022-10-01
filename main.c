@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 08:39:01 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/01 23:04:44 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/01 23:11:00 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	a(void)
 
 int	main(int ac, char **av)
 {
-	atexit(a);
+	//atexit(a);
 	t_info	info;
 	t_ps	ps;
 
