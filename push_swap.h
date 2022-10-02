@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 08:41:23 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/02 20:59:43 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/02 22:16:14 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void			make_num_arr(t_info *info, int ac, char **av);
 
 //init
 void			init_arr(t_info *info, int ac, char **av);
+int				get_idx(int *arr, int n);
 void			init_ps(t_info *info, t_ps *ps);
 int				check_sorted(t_ps *ps);
 void			free_ps(t_ps *ps);
@@ -112,5 +113,7 @@ void			sort5(t_ps *ps);
 void			sort_5_or_less(t_ps *ps);
 
 //sort
+void			a_to_b(t_ps *ps, int chunk, int i);
+void			b_to_a(t_ps *ps);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:45:35 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/02 18:16:10 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/02 21:39:15 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,19 @@ void	init_arr(t_info *info, int ac, char **av)
 	make_num_arr(info, ac, av);
 }
 
+int	get_idx(int *arr, int n)
+{
+	int	i;
+
+	i = -1;
+	while (arr[++i] != n)
+		;
+	return (i);
+}
+
 void	init_ps(t_info *info, t_ps *ps)
 {
+	int		*sorted_arr;
 	int		i;
 
 	ps->a = (t_stack *)malloc(sizeof(t_stack));
@@ -31,9 +42,15 @@ void	init_ps(t_info *info, t_ps *ps)
 	init_stack(ps->a);
 	init_stack(ps->b);
 	init_stack(ps->cmd_stack);
+	sorted_arr = (int *)malloc(sizeof(int) * info->str_cnt);
 	i = -1;
 	while (++i < info->str_cnt)
-		push(ps->a, info->num_arr[i]);
+		sorted_arr[i] = info->num_arr[i];
+	quick_sort(sorted_arr, 0, info->str_cnt - 1);
+	i = -1;
+	while (++i < info->str_cnt)
+		push(ps->a, get_idx(sorted_arr, info->num_arr[i]));
+	free(sorted_arr);
 	ps->cmd_cnt = 0;
 }
 
