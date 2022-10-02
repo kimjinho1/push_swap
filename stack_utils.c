@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 19:53:22 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/01 20:01:40 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/02 19:47:17 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	*to_array(t_stack *stack)
 	int		i;
 
 	tmp = stack->head;
-	arr = malloc(sizeof(int));
+	arr = (int *)malloc(sizeof(int) * stack->len);
 	i = -1;
 	while (++i < stack->len)
 	{

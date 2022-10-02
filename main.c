@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 08:39:01 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/01 23:11:00 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/02 21:01:09 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,9 @@ int	main(int ac, char **av)
 		free_ps(&ps);
 		free_exit(&info);
 	}
-	print_ps(&ps);
 	if (info.str_cnt < 6)
-		sort_5_or_less(&info, &ps);
-	print_ps(&ps);
-	if (check_sorted(&ps))
-		ft_printf("sort finish\n");
-	else
-		ft_printf("sort not finish\n");
+		sort_5_or_less(&ps);
+	print_all_cmd(ps.cmd_stack);
 	free(info.num_arr);
 	free_ps(&ps);
 }

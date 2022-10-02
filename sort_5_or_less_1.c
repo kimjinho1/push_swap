@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 19:24:42 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/01 22:21:53 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/02 20:06:22 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,14 @@ void	sort4(t_ps *ps)
 	{
 		if (ps->a->head->num == min)
 		{
-			pb(ps);
+			cmd_update(ps, 4, pb);
 			break ;
 		}
 		else
 			ra(ps);
 	}
 	sort3(ps);
-	pa(ps);
+	cmd_update(ps, 3, pa);
 }
 
 void	sort5(t_ps *ps)
@@ -66,33 +66,31 @@ void	sort5(t_ps *ps)
 	i = -1;
 	pb_i = 0;
 	m = get_median(ps->a);
-	while (++i < 5)
+	while (++i < 5 && pb_i < ps->a->len / 2)
 	{
 		if (ps->a->head->num < m)
 		{
-			pb(ps);
+			cmd_update(ps, 4, pb);
 			pb_i++;
-			if (pb_i == 2)
-				break ;
 		}
 		else
-			ra(ps);
+			cmd_update(ps, 5, ra);
 	}
 	sort3(ps);
-	pa(ps);
-	pa(ps);
+	cmd_update(ps, 3, pa);
+	cmd_update(ps, 3, pa);
 	if (ps->a->head->num > ps->a->head->next->num)
-		sa(ps);
+		cmd_update(ps, 0, sa);
 }
 
-void	sort_5_or_less(t_info *info, t_ps *ps)
+void	sort_5_or_less(t_ps *ps)
 {
-	if (info->str_cnt == 2)
+	if (ps->a->len == 2)
 		sort2(ps);
-	else if (info->str_cnt == 3)
+	else if (ps->a->len == 3)
 		sort3(ps);
-	else if (info->str_cnt == 4)
+	else if (ps->a->len == 4)
 		sort4(ps);
-	else if (info->str_cnt == 5)
+	else if (ps->a->len == 5)
 		sort5(ps);
 }

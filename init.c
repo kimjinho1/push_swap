@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 20:45:35 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/01 20:23:28 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/02 18:16:10 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,14 @@ void	init_ps(t_info *info, t_ps *ps)
 
 	ps->a = (t_stack *)malloc(sizeof(t_stack));
 	ps->b = (t_stack *)malloc(sizeof(t_stack));
+	ps->cmd_stack = (t_stack *)malloc(sizeof(t_stack));
 	init_stack(ps->a);
 	init_stack(ps->b);
+	init_stack(ps->cmd_stack);
 	i = -1;
 	while (++i < info->str_cnt)
 		push(ps->a, info->num_arr[i]);
 	ps->cmd_cnt = 0;
-	ps->cmd_li = NULL;
 }
 
 int	check_sorted(t_ps *ps)
@@ -59,4 +60,5 @@ void	free_ps(t_ps *ps)
 {
 	free_stack(ps->a);
 	free_stack(ps->b);
+	free_stack(ps->cmd_stack);
 }

@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 08:41:23 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/01 22:44:28 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/02 20:59:43 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ typedef struct s_ps
 {
 	t_stack	*a;
 	t_stack	*b;
+	t_stack	*cmd_stack;
 	int		cmd_cnt;
-	char	**cmd_li;
 }				t_ps;
 
 // stack
@@ -98,6 +98,9 @@ void			rra(t_ps *ps);
 void			rrb(t_ps *ps);
 void			rrr(t_ps *ps);
 
+void			print_all_cmd(t_stack *cmd_stack);
+void			cmd_update(t_ps *ps, int n, void (*f)(t_ps *));
+
 //sort_under_5
 void			quick_sort(int *arr, int start, int end);
 int				get_median(t_stack *stack);
@@ -106,11 +109,8 @@ void			sort2(t_ps *ps);
 void			sort3(t_ps *ps);
 void			sort4(t_ps *ps);
 void			sort5(t_ps *ps);
-void			sort_5_or_less(t_info *info, t_ps *ps);
+void			sort_5_or_less(t_ps *ps);
 
-/*
-void			print_all_cmd(t_stack *s);
-void			cmd_update(t_stack *s, int n, void (*f)(t_stack *));
-*/
+//sort
 
 #endif

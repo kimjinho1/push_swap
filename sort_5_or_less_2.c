@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 21:44:59 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/01 22:36:32 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/02 18:26:54 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,17 @@ void	quick_sort(int *arr, int start, int end)
 void	sort2(t_ps *ps)
 {
 	if (ps->a->head->num > ps->a->head->next->num)
-		sa(ps);
+		cmd_update(ps, 0, sa);
 }
 
 static void	sort_3_2(int *arr, t_ps *ps)
 {
 	if (arr[0] < arr[1])
-		rra(ps);
+		cmd_update(ps, 8, rra);
 	else
 	{
-		sa(ps);
-		rra(ps);
+		cmd_update(ps, 0, sa);
+		cmd_update(ps, 8, rra);
 	}
 }
 
@@ -64,15 +64,15 @@ void	sort3(t_ps *ps)
 	arr = to_array(ps->a);
 	if (arr[0] < arr[1] && arr[0] < arr[2])
 	{
-		sa(ps);
-		ra(ps);
+		cmd_update(ps, 0, sa);
+		cmd_update(ps, 5, ra);
 	}
 	else if (arr[1] < arr[0] && arr[1] < arr[2])
 	{
 		if (arr[0] < arr[2])
-			sa(ps);
+			cmd_update(ps, 0, sa);
 		else
-			ra(ps);
+			cmd_update(ps, 5, ra);
 	}
 	else
 		sort_3_2(arr, ps);

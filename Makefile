@@ -1,4 +1,4 @@
-# **************************************************************************** #
+#nizize **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
@@ -6,7 +6,7 @@
 #    By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 08:48:05 by jinhokim          #+#    #+#              #
-#    Updated: 2022/10/01 22:22:52 by jinhokim         ###   ########.fr        #
+#    Updated: 2022/10/02 21:00:50 by jinhokim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,9 @@ HEADER			= push_swap.h
 
 CC				= cc
 CFLAGS			= -Wall -Wextra -Werror
+#CFLAGS			= -Wall -Wextra -Werror -fsanitize=thread -g
+#CFLAGS			= -g -fsanitize=address
+
 RM				= rm -f
 
 LIBS			= -L ./ft_printf -lftprintf
