@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 08:41:23 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/02 22:16:14 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/02 23:07:02 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ typedef struct s_ps
 	int		cmd_cnt;
 }				t_ps;
 
-// stack
 void			init_stack(t_stack *stack);
 void			push_left(t_stack *list, int data);
 void			push(t_stack *stack, int data);
@@ -68,25 +67,21 @@ void			free_stack(t_stack *stack);
 void			print_stack(t_stack *stack);
 void			print_arr(int *arr, t_stack *stack);
 
-//utils
 void			error_exit(void);
 void			free_exit(t_info *info);
 void			error_free_exit(t_info *info);
 void			print_ps(t_ps *ps);
 void			swap(int *n1, int *n2);
 
-//parsing
 int				get_num_count(int ac, char **av);
 void			make_num_arr(t_info *info, int ac, char **av);
 
-//init
 void			init_arr(t_info *info, int ac, char **av);
 int				get_idx(int *arr, int n);
 void			init_ps(t_info *info, t_ps *ps);
 int				check_sorted(t_ps *ps);
 void			free_ps(t_ps *ps);
 
-//op
 void			sa(t_ps *ps);
 void			sb(t_ps *ps);
 void			ss(t_ps *ps);
@@ -102,7 +97,6 @@ void			rrr(t_ps *ps);
 void			print_all_cmd(t_stack *cmd_stack);
 void			cmd_update(t_ps *ps, int n, void (*f)(t_ps *));
 
-//sort_under_5
 void			quick_sort(int *arr, int start, int end);
 int				get_median(t_stack *stack);
 int				get_min(t_stack *stack);
@@ -112,7 +106,6 @@ void			sort4(t_ps *ps);
 void			sort5(t_ps *ps);
 void			sort_5_or_less(t_ps *ps);
 
-//sort
 void			a_to_b(t_ps *ps, int chunk, int i);
 void			b_to_a(t_ps *ps);
 

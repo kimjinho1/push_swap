@@ -6,7 +6,7 @@
 #    By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 08:48:05 by jinhokim          #+#    #+#              #
-#    Updated: 2022/10/02 22:02:51 by jinhokim         ###   ########.fr        #
+#    Updated: 2022/10/02 23:06:45 by jinhokim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,6 @@ HEADER			= push_swap.h
 
 CC				= cc
 CFLAGS			= -Wall -Wextra -Werror
-#CFLAGS			= -Wall -Wextra -Werror -fsanitize=thread -g
-#CFLAGS			= -g -fsanitize=address
 
 RM				= rm -f
 
