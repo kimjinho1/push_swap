@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 21:10:58 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/03 21:54:35 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/03 22:32:58 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,7 @@ void			print_all_cmd(t_stack *cmd_stack);
 void			cmd_update(t_ps *ps, int n, void (*f)(t_ps *));
 
 int				get_next_line(char **line);
+
+void			check_op(t_ps *ps, t_info *info, char *op);
 
 #endif

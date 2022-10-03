@@ -6,7 +6,7 @@
 #    By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 08:48:05 by jinhokim          #+#    #+#              #
-#    Updated: 2022/10/03 21:57:42 by jinhokim         ###   ########.fr        #
+#    Updated: 2022/10/03 22:31:41 by jinhokim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ BONUS_SRCS		= ./bonus/main_bonus.c \
 					./bonus/op2_bonus.c \
 					./bonus/op3_bonus.c \
 					./bonus/gnl_bonus.c \
+					./bonus/check_bonus.c \
 
 HEADER			= ./mandatory/push_swap.h
 

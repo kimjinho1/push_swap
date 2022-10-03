@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 21:55:08 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/03 21:55:12 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/03 23:01:46 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ int	get_next_line(char **line)
 	buf[++i] = '\0';
 	*line = buf;
 	free(buf);
-	return (r);
+	return (i - 1);
 }

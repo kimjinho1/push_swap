@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 21:55:41 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/03 21:58:38 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/03 23:07:34 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,9 @@ int	main(int ac, char **av)
 		free_ps(&ps);
 		free_exit(&info);
 	}
-	str = NULL;
-	while (42)
+	while (get_next_line(&str) > 0)
 	{
-		get_next_line(&str);
-		ft_printf("str: %s\n", str);
+		check_op(&ps, &info, str);
 		str = NULL;
 	}
 	if (check_sorted(&ps))
