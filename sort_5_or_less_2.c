@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_under_5_2.c                                   :+:      :+:    :+:   */
+/*   sort_5_or_less_2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 21:44:59 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/02 18:26:54 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/03 18:22:12 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,43 +38,44 @@ void	quick_sort(int *arr, int start, int end)
 	quick_sort(arr, j + 1, end);
 }
 
+int	get_min(t_stack *stack)
+{
+	int	*arr;
+	int	n;
+
+	arr = to_array(stack);
+	quick_sort(arr, 0, stack->len - 1);
+	n = arr[0];
+	free(arr);
+	return (n);
+}
+
+int	get_median(t_stack *stack)
+{
+	int	*arr;
+	int	n;
+
+	arr = to_array(stack);
+	quick_sort(arr, 0, stack->len - 1);
+	n = arr[stack->len / 2];
+	free(arr);
+	return (n);
+}
+
+int	get_max(t_stack *stack)
+{
+	int	*arr;
+	int	n;
+
+	arr = to_array(stack);
+	quick_sort(arr, 0, stack->len - 1);
+	n = arr[stack->len - 1];
+	free(arr);
+	return (n);
+}
+
 void	sort2(t_ps *ps)
 {
 	if (ps->a->head->num > ps->a->head->next->num)
 		cmd_update(ps, 0, sa);
-}
-
-static void	sort_3_2(int *arr, t_ps *ps)
-{
-	if (arr[0] < arr[1])
-		cmd_update(ps, 8, rra);
-	else
-	{
-		cmd_update(ps, 0, sa);
-		cmd_update(ps, 8, rra);
-	}
-}
-
-void	sort3(t_ps *ps)
-{
-	int	*arr;
-
-	if (check_sorted(ps))
-		return ;
-	arr = to_array(ps->a);
-	if (arr[0] < arr[1] && arr[0] < arr[2])
-	{
-		cmd_update(ps, 0, sa);
-		cmd_update(ps, 5, ra);
-	}
-	else if (arr[1] < arr[0] && arr[1] < arr[2])
-	{
-		if (arr[0] < arr[2])
-			cmd_update(ps, 0, sa);
-		else
-			cmd_update(ps, 5, ra);
-	}
-	else
-		sort_3_2(arr, ps);
-	free(arr);
 }

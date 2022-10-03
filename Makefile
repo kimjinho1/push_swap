@@ -6,7 +6,7 @@
 #    By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 08:48:05 by jinhokim          #+#    #+#              #
-#    Updated: 2022/10/02 23:06:45 by jinhokim         ###   ########.fr        #
+#    Updated: 2022/10/03 19:05:20 by jinhokim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS			= main.c \
 					sort_5_or_less_1.c \
 					sort_5_or_less_2.c \
 					sort.c \
+					optimize.c \
 
 HEADER			= push_swap.h
 

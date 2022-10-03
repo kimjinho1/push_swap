@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 08:39:01 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/02 23:07:35 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/03 19:10:42 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int ac, char **av)
 		free_ps(&ps);
 		free_exit(&info);
 	}
-	chunk = 0.000000053 * ps.a->len * ps.a->len + 0.03 * ps.a->len + 14.5;
+	chunk = ps.a->len * (0.000000053 * ps.a->len + 0.03) + 14.5;
 	if (info.str_cnt < 6)
 		sort_5_or_less(&ps);
 	else
@@ -33,6 +33,7 @@ int	main(int ac, char **av)
 		a_to_b(&ps, 0, chunk);
 		b_to_a(&ps);
 	}
+	optimize(&ps);
 	print_all_cmd(ps.cmd_stack);
 	free(info.num_arr);
 	free_ps(&ps);

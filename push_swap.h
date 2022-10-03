@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 08:41:23 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/02 23:07:02 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/03 19:05:05 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,9 @@ void			print_all_cmd(t_stack *cmd_stack);
 void			cmd_update(t_ps *ps, int n, void (*f)(t_ps *));
 
 void			quick_sort(int *arr, int start, int end);
-int				get_median(t_stack *stack);
 int				get_min(t_stack *stack);
+int				get_median(t_stack *stack);
+int				get_max(t_stack *stack);
 void			sort2(t_ps *ps);
 void			sort3(t_ps *ps);
 void			sort4(t_ps *ps);
@@ -108,5 +109,7 @@ void			sort_5_or_less(t_ps *ps);
 
 void			a_to_b(t_ps *ps, int chunk, int i);
 void			b_to_a(t_ps *ps);
+
+void			optimize(t_ps *ps);
 
 #endif

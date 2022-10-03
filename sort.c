@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 21:51:08 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/02 22:32:12 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/03 18:50:34 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,26 +27,9 @@ void	a_to_b(t_ps *ps, int i, int chunk)
 			cmd_update(ps, 6, rb);
 			i++;
 		}
-		else if (ps->a->head->num > i + chunk)
-		{
-			if (i < ps->a->len / 2 && i >= 0)
-				cmd_update(ps, 8, rra);
-			else
-				cmd_update(ps, 5, ra);
-		}
+		else
+			cmd_update(ps, 5, ra);
 	}
-}
-
-static int	get_max(t_stack *stack)
-{
-	int	*arr;
-	int	n;
-
-	arr = to_array(stack);
-	quick_sort(arr, 0, stack->len - 1);
-	n = arr[stack->len - 1];
-	free(arr);
-	return (n);
 }
 
 static int	get_stack_idx(t_stack *stack, int n)

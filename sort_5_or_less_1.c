@@ -1,39 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_under_5_1.c                                   :+:      :+:    :+:   */
+/*   sort_5_or_less_1.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 19:24:42 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/02 20:06:22 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/03 18:17:10 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_median(t_stack *stack)
+static void	sort_3_2(int *arr, t_ps *ps)
 {
-	int	*arr;
-	int	n;
-
-	arr = to_array(stack);
-	quick_sort(arr, 0, stack->len - 1);
-	n = arr[stack->len / 2];
-	free(arr);
-	return (n);
+	if (arr[0] < arr[1])
+		cmd_update(ps, 8, rra);
+	else
+	{
+		cmd_update(ps, 0, sa);
+		cmd_update(ps, 8, rra);
+	}
 }
 
-int	get_min(t_stack *stack)
+void	sort3(t_ps *ps)
 {
 	int	*arr;
-	int	n;
 
-	arr = to_array(stack);
-	quick_sort(arr, 0, stack->len - 1);
-	n = arr[0];
+	if (check_sorted(ps))
+		return ;
+	arr = to_array(ps->a);
+	if (arr[0] < arr[1] && arr[0] < arr[2])
+	{
+		cmd_update(ps, 0, sa);
+		cmd_update(ps, 5, ra);
+	}
+	else if (arr[1] < arr[0] && arr[1] < arr[2])
+	{
+		if (arr[0] < arr[2])
+			cmd_update(ps, 0, sa);
+		else
+			cmd_update(ps, 5, ra);
+	}
+	else
+		sort_3_2(arr, ps);
 	free(arr);
-	return (n);
 }
 
 void	sort4(t_ps *ps)
