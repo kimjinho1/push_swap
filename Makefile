@@ -6,7 +6,7 @@
 #    By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/20 08:48:05 by jinhokim          #+#    #+#              #
-#    Updated: 2022/10/03 21:09:03 by jinhokim         ###   ########.fr        #
+#    Updated: 2022/10/03 21:57:42 by jinhokim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,11 +29,20 @@ SRCS			= ./mandatory/main.c \
 					./mandatory/sort.c \
 					./mandatory/optimize.c \
 
-BONUS_SRCS		= ./bonus/main.c \
+BONUS_SRCS		= ./bonus/main_bonus.c \
+				  	./bonus/stack_bonus.c \
+					./bonus/stack_utils_bonus.c \
+					./bonus/utils_bonus.c \
+					./bonus/parsing_bonus.c \
+					./bonus/init_bonus.c \
+					./bonus/op1_bonus.c \
+					./bonus/op2_bonus.c \
+					./bonus/op3_bonus.c \
+					./bonus/gnl_bonus.c \
 
 HEADER			= ./mandatory/push_swap.h
 
-BONUS_HEADER	= ./bonus/checker.h
+BONUS_HEADER	= ./bonus/checker_bonus.h
 
 CC				= cc
 CFLAGS			= -Wall -Wextra -Werror
