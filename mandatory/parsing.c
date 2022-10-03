@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 00:14:57 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/01 23:09:07 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/03 21:03:43 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	get_num_count(int ac, char **av)
 {
 	int		i;
 	int		cnt;
-	size_t	t;
 	char	**nums_str;
 
 	i = 0;
@@ -52,9 +51,6 @@ int	get_num_count(int ac, char **av)
 		error_exit();
 	while (++i < ac)
 	{
-		t = ft_strlen(av[i]);
-		if (t == 1 && av[i][0] == ' ')
-			error_exit();
 		nums_str = ft_split(av[i], ' ');
 		cnt += str_num_count(nums_str);
 	}
@@ -109,6 +105,8 @@ void	make_num_arr(t_info *info, int ac, char **av)
 	info->num_arr = (int *)malloc(sizeof(int) * info->str_cnt);
 	while (++i < ac)
 	{
+		if (!check_space(av[i]))
+			error_free_exit(info);
 		nums_str = ft_split(av[i], ' ');
 		fill_num_arr(info, nums_str);
 	}

@@ -6,14 +6,20 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 08:39:01 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/03 19:10:42 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/03 21:06:36 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	a(void)
+{
+	system("leaks push_swap");
+}
+
 int	main(int ac, char **av)
 {
+	atexit(a);
 	t_info	info;
 	t_ps	ps;
 	int		chunk;

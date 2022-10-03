@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 08:41:23 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/03 19:05:05 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/03 21:00:31 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 # include <stdlib.h>
 # include <unistd.h>
-# include "./ft_printf/ft_printf.h"
+# include "../ft_printf/ft_printf.h"
 
 # define SA		0
 # define SB		1
@@ -81,6 +81,7 @@ int				get_idx(int *arr, int n);
 void			init_ps(t_info *info, t_ps *ps);
 int				check_sorted(t_ps *ps);
 void			free_ps(t_ps *ps);
+int				check_space(char *s);
 
 void			sa(t_ps *ps);
 void			sb(t_ps *ps);
