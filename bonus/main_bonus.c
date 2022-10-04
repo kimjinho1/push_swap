@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 21:55:41 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/04 13:05:57 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/04 16:02:04 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	main_2(t_ps *ps)
 		free(str);
 	}
 	if (!ps->op_flag)
-		write(2, "KO\n", 3);
+		write(2, "Error\n", 6);
 	else
 	{
 		if (check_sorted(ps))
