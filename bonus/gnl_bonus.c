@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 21:55:08 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/03 23:01:46 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/04 12:42:58 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ int	get_next_line(char **line)
 		i++;
 		r = read(0, &c, 1);
 	}
-	buf[i] = '\n';
-	buf[++i] = '\0';
+	buf[i] = '\0';
 	*line = buf;
-	free(buf);
-	return (i - 1);
+	return (r);
 }

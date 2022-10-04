@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 21:10:58 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/03 22:32:58 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/03 23:39:11 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_ps
 	t_stack	*b;
 	t_stack	*cmd_stack;
 	int		cmd_cnt;
+	int		op_flag;
 }				t_ps;
 
 void			init_stack(t_stack *stack);
@@ -98,6 +99,6 @@ void			cmd_update(t_ps *ps, int n, void (*f)(t_ps *));
 
 int				get_next_line(char **line);
 
-void			check_op(t_ps *ps, t_info *info, char *op);
+void			check_op(t_ps *ps, char *op);
 
 #endif

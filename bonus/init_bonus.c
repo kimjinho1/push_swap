@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 21:55:53 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/03 21:55:58 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/03 23:34:43 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	init_ps(t_info *info, t_ps *ps)
 	while (++i < info->str_cnt)
 		push(ps->a, info->num_arr[i]);
 	ps->cmd_cnt = 0;
+	ps->op_flag = 1;
 }
 
 int	check_sorted(t_ps *ps)
