@@ -6,7 +6,7 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 00:14:57 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/03 21:03:43 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/04 13:36:29 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ int	get_num_count(int ac, char **av)
 
 	i = 0;
 	cnt = 0;
-	if (ac < 2)
-		error_exit();
 	while (++i < ac)
 	{
 		nums_str = ft_split(av[i], ' ');
