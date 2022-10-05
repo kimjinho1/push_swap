@@ -6,11 +6,18 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 08:39:01 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/03 21:07:28 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/05 23:25:07 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	get_chunk(int len)
+{
+	if (len < 100)
+		return (15);
+	return (30);
+}
 
 int	main(int ac, char **av)
 {
@@ -25,7 +32,7 @@ int	main(int ac, char **av)
 		free_ps(&ps);
 		free_exit(&info);
 	}
-	chunk = ps.a->len * (0.000000053 * ps.a->len + 0.03) + 14.5;
+	chunk = get_chunk(ps.a->len);
 	if (info.str_cnt < 6)
 		sort_5_or_less(&ps);
 	else

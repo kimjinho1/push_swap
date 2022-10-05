@@ -6,11 +6,49 @@
 /*   By: jinhokim <jinhokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 21:51:08 by jinhokim          #+#    #+#             */
-/*   Updated: 2022/10/03 18:50:34 by jinhokim         ###   ########.fr       */
+/*   Updated: 2022/10/05 23:15:44 by jinhokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	get_stack_idx(t_stack *stack, int n)
+{
+	t_node	*tmp;
+	int		i;
+
+	tmp = stack->head;
+	i = 0;
+	while (tmp && tmp->num != n)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	return (i);
+}
+
+static int	set_rotate(t_ps *ps, int i, int chunk)
+{
+	int	min;
+	int	max;
+	int	j;
+	int	t;
+
+	min = 0;
+	max = ps->a->len;
+	j = i - 1;
+	while (++j <= i + chunk)
+	{
+		t = get_stack_idx(ps->a, j);
+		if (t < min)
+			min = t;
+		if (t > max)
+			max = t;
+	}
+	if (min < ps->a->len - max)
+		return (1);
+	return (0);
+}
 
 void	a_to_b(t_ps *ps, int i, int chunk)
 {
@@ -28,23 +66,13 @@ void	a_to_b(t_ps *ps, int i, int chunk)
 			i++;
 		}
 		else
-			cmd_update(ps, 5, ra);
+		{
+			if (set_rotate(ps, i, chunk))
+				cmd_update(ps, 5, ra);
+			else
+				cmd_update(ps, 8, rra);
+		}
 	}
-}
-
-static int	get_stack_idx(t_stack *stack, int n)
-{
-	t_node	*tmp;
-	int		i;
-
-	tmp = stack->head;
-	i = 0;
-	while (tmp && tmp->num != n)
-	{
-		tmp = tmp->next;
-		i++;
-	}
-	return (i);
 }
 
 static void	max_to_top(t_ps *ps)
